@@ -52,6 +52,7 @@ for name, from_person in [("sara", from_sara), ("chris", from_chris)]:
         words = words.replace("germani", "")
         words = words.replace("sshacklensf", "")
         words = words.replace("cgermannsf", "")
+        
         ### append the text to word_data
         word_data.append(words)
 
@@ -70,7 +71,7 @@ from_chris.close()
 pickle.dump( word_data, open("your_word_data.pkl", "w") )
 pickle.dump( from_data, open("your_email_authors.pkl", "w") )
 
-
+"""
 
 ### in Part 4, do TfIdf vectorization here
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -78,3 +79,4 @@ transformer = TfidfVectorizer(stop_words="english")
 tfidf = transformer.fit_transform(word_data)
 
 print len(transformer.get_feature_names())
+"""

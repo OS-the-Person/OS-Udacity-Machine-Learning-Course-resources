@@ -19,7 +19,7 @@ def my_func(words_file, authors_file):
 
 
 
-    ### test_size is the percentage of events assigned to the test set (the
+     ### test_size is the percentage of events assigned to the test set (the
     ### remainder go into training)
     ### feature matrices changed to dense representations for compatibility with
     ### classifier functions in versions 0.15.2 and earlier
@@ -31,7 +31,8 @@ def my_func(words_file, authors_file):
                                  stop_words='english')
     features_train = vectorizer.fit_transform(features_train)
     features_test  = vectorizer.transform(features_test).toarray()
-
+    
+    print vectorizer.get_feature_names()[21795]
 
     ### a classic way to overfit is to use a small number
     ### of data points and a large number of features;
@@ -51,13 +52,13 @@ def my_func(words_file, authors_file):
 #my_func(words_file, authors_file)
 #print 'Number of training points = {0}'.format(len(features_train))
 
-"""
+
 score = clf.score(features_test, labels_test)
 print score
-"""
 #import math
 #print clf.feature_importances_.max()
+"""
 myArr = clf.feature_importances_
 newArr = []
 newArr = [(x, myArr[x]) for x in range(len(myArr)) if myArr[x] > 0.2]
-print newArr
+"""
